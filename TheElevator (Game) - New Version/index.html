@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Elevator</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="c"></canvas>
+<canvas id="grain" width="192" height="108"></canvas>
+<div id="scan"></div><div id="vig"></div><div id="flash"></div><div id="cross"></div>
+
+<div class="hud" id="keys"></div>
+<div class="hud" id="objective"></div>
+<div class="hud" id="arrow"><b id="arrowIcon">&#9650;</b><span id="arrowDist"></span></div>
+<div class="hud" id="prompt"></div>
+<div class="hud" id="dialogue"><b id="speaker"></b><span id="speech"></span></div>
+<div class="hud" id="note"></div>
+<div class="hud" id="title"></div>
+<div id="fade"></div>
+
+<div id="menu">
+  <div class="panel" id="panelMain">
+    <h1 id="menuTitle"></h1>
+    <p class="sub" id="menuSub"></p>
+    <button class="btn" id="btnPlay"></button>
+    <button class="btn" id="btnControls" data-t="ctl"></button>
+    <button class="btn" id="btnSettings" data-t="set"></button>
+    <button class="btn" id="btnHome" data-t="home" hidden></button>
+  </div>
+  <div class="panel" id="panelControls" hidden>
+    <h1 class="heading" data-t="ctl"></h1>
+    <div class="controls">
+      <b>W A S D</b><span data-t="cm"></span>
+      <b>Shift</b><span data-t="cr"></span>
+      <b>Space</b><span data-t="cj"></span>
+      <b>Mouse</b><span data-t="cl"></span>
+      <b>Click / E</b><span data-t="cc"></span>
+      <b>F</b><span data-t="cf"></span>
+      <b>Esc</b><span data-t="cp"></span>
+    </div>
+    <button class="btn" data-back data-t="back"></button>
+  </div>
+  <div class="panel" id="panelSettings" hidden>
+    <h1 class="heading" data-t="set"></h1>
+    <label class="field"><span data-t="lang"></span>
+      <select id="selLang"><option value="en">English</option><option value="fil">Filipino</option><option value="es">Español</option><option value="ja">日本語</option></select></label>
+    <label class="field"><span data-t="gfx"></span>
+      <select id="selQuality"><option value="q1" data-t="q1"></option><option value="q2" data-t="q2"></option><option value="q3" data-t="q3"></option><option value="q4" data-t="q4"></option></select></label>
+    <label class="field"><span data-t="voice"></span>
+      <select id="selVoice"><option value="0" data-t="vOff"></option><option value="1" data-t="vOn"></option></select></label>
+    <label class="field"><span data-t="vol"></span><input type="range" id="rngVolume" min="0" max="1" step=".05" value=".6"></label>
+    <label class="field"><span data-t="sens"></span><input type="range" id="rngSens" min=".4" max="2.5" step=".1" value="1"></label>
+    <button class="btn" data-back data-t="back"></button>
+  </div>
+  <div class="footnote" data-t="hint"></div>
+</div>
+
+<!-- Scripts are plain (non-module) files that share one scope, so the order matters. -->
+<script src="translations.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="core.js"></script>
+<script src="settings.js"></script>
+<script src="audio.js"></script>
+<script src="dialogue.js"></script>
+<script src="texture.js"></script>
+<script src="world.js"></script>
+<script src="elevator.js"></script>
+<script src="characters.js"></script>
+<script src="floor.js"></script>
+<script src="hands.js"></script>
+<script src="game.js"></script>
+<script src="menu.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
