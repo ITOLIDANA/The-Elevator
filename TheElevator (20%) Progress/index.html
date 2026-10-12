@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The Elevator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="stage" id="stage">
+    <canvas id="view" width="480" height="270" aria-label="First-person view across a flat plain"></canvas>
+    <div class="hud">
+      <div class="cross"></div>
+      <div class="toast" id="toast" role="status">Click and move the mouse, or drag, to look. WASD to walk, Shift to run, Space to jump, F for full screen.</div>
+    </div>
+    <div class="pad" id="pad" aria-label="Touch controls">
+      <button type="button" data-k="l" aria-label="Turn left">&#8630;</button>
+      <button type="button" data-k="f" aria-label="Walk forward">&#9650;</button>
+      <button type="button" data-k="r" aria-label="Turn right">&#8631;</button>
+      <button type="button" data-k="sl" aria-label="Step left">&#9664;</button>
+      <button type="button" data-k="b" aria-label="Walk back">&#9660;</button>
+      <button type="button" data-k="sr" aria-label="Step right">&#9654;</button>
+    </div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

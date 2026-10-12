@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The Elevator Office</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="office.css">
+</head>
+<body>
+  <main class="stage" id="stage">
+    <canvas id="view" width="480" height="270" aria-label="First-person view of an office lobby"></canvas>
+    <div class="hud">
+      <div class="cross"></div>
+      <div class="toast" id="toast" role="status">You are in the ground floor lobby. Talk to the security guard on the right side of the elevator: walk up to him and press E. W A S D to walk, arrow keys to turn, mouse or drag to look, Shift to run, F for full screen.</div>
+    </div>
+    <button class="prompt" id="prompt" type="button" hidden>Press E to talk to Marcus</button>
+    <div class="dialog" id="dialog" hidden>
+      <div class="who" id="dialogWho">Marcus</div>
+      <p id="dialogText"></p>
+      <div class="next" id="dialogNext"></div>
+    </div>
+    <div class="fade" id="fade"></div>
+    <div class="end" id="end" hidden>
+      <div class="kicker">1st Floor</div>
+      <h1>Reception</h1>
+      <p>The doors open onto the first floor. Your badge worked, and you are right on time.</p>
+      <button class="btn" id="endBtn" type="button">Ride again</button>
+    </div>
+    <div class="pad" id="pad" aria-label="Touch controls">
+      <button type="button" data-k="l" aria-label="Turn left">&#8630;</button>
+      <button type="button" data-k="f" aria-label="Walk forward">&#9650;</button>
+      <button type="button" data-k="r" aria-label="Turn right">&#8631;</button>
+      <button type="button" data-k="sl" aria-label="Step left">&#9664;</button>
+      <button type="button" data-k="b" aria-label="Walk back">&#9660;</button>
+      <button type="button" data-k="sr" aria-label="Step right">&#9654;</button>
+    </div>
+  </main>
+  <script src="office.js"></script>
+  <script>
+    /* file checks: tell the player straight away if a file is missing or renamed */
+    (function () {
+      function banner(text, full) {
+        var m = document.createElement('div');
+        m.style.cssText = (full ? 'position:fixed;inset:0;display:flex;align-items:center;justify-content:center;' : 'position:fixed;left:0;right:0;top:0;') +
+          'padding:16px 24px;background:#7a1010;color:#fff;font:16px/1.4 system-ui,sans-serif;text-align:center;z-index:9';
+        m.textContent = text;
+        document.body.appendChild(m);
+      }
+      if (!window.__officeLoaded) banner('office.js did not load. Keep office.js in the same folder as this page, with exactly that name.', true);
+      else if (getComputedStyle(document.getElementById('stage')).position !== 'relative') banner('office.css did not load. Keep office.css in the same folder as this page, with exactly that name.', false);
+    })();
+  </script>
+</body>
+</html>
